@@ -22,11 +22,11 @@
 }
 
 .main-content {
-  padding: 2rem 3rem 0;
+  padding: 1rem 3rem 0;
   grid-area: content;
   display: grid;
   grid-template-columns: 1.7fr 1fr;
-  grid-template-rows: 0.3fr 0.9fr repeat(2, 1fr);
+  grid-template-rows: 12% 25% 7% 46%;
   grid-template-areas:
     "header header"
     "overview status"
@@ -40,7 +40,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .new-invoice {
@@ -129,13 +128,41 @@
   width: 50%;
 }
 
-/*
 .table-management {
   grid-area: table-management;
-  background-color: #4995ff;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.buttons {
+  display: flex;
+  align-items: end;
+}
+
+.table-btn {
+  height: 80%;
+  background-color: transparent;
+  border: none;
+  padding: 0 0.7rem;
+  cursor: pointer;
+}
+
+.active {
+  border-bottom: 3px solid var(--f-clr-highlight-dark);
+}
+
+.table-sorting {
+  display: flex;
+  align-items: end;
+  height: 90%;
+  gap: 10px;
 }
 
 .invoice-table {
   grid-area: table;
-  background-color: grey;
-} */
+  background-color: var(--bg-clr-light);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-standard);
+  border: var(--border);
+}

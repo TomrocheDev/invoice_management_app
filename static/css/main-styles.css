@@ -6,7 +6,7 @@
 }
 
 :root {
-  --shadow: 2px 2px 2px rgb(183, 183, 183);
+  --shadow: 2px 2px 1px rgb(183, 183, 183);
   --border: 1px solid rgba(128, 128, 128, 0.434);
   --border-radius-standard: 7px;
 
@@ -43,5 +43,5 @@ h6 {
   grid-template-columns: 4rem 1fr;
   grid-template-rows: 3.5rem 1fr;
 
-  background-color: rgb(220, 223, 228);
+  background-color: rgb(229, 234, 242);
 }

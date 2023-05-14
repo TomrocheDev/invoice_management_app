@@ -75,7 +75,18 @@
           </div>
         </div>
 
-        <div class="table-management"></div>
+        <div class="table-management">
+          <div class="buttons">
+            <button class="table-btn active">Open invoices</button>
+            <button class="table-btn">Paid invoices</button>
+          </div>
+          <div class="table-sorting">
+            <label for="table-sorting">Sort by: </label>
+            <select name="sort" id="table-sorting">
+              <option value="date">Date created</option>
+            </select>
+          </div>
+        </div>
         <div class="invoice-table"></div>
       </div>
     </main>
