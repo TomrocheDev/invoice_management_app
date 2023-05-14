@@ -12,12 +12,13 @@
 
   --f-clr-highlight: #4995ff;
   --f-clr-highlight-dark: #3e7bd1;
-  --f-clr-dark-accent: rgba(0, 0, 0, 0.8);
+  --f-clr-dark-accent: rgba(0, 0, 0, 0.75);
 
   --clr-disabled: rgb(166, 166, 166);
-  --bg-clr-light: rgb(238, 238, 238);
+  --bg-clr-light: rgb(245, 245, 245);
 
   --fs-small: 14px;
+  --fs-large: 27px;
 }
 
 h1,
@@ -27,6 +28,12 @@ h4,
 h5,
 h6 {
   color: var(--f-clr-dark-accent);
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main-screen {
