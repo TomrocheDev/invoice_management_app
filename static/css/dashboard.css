@@ -1,0 +1,82 @@
+.main-screen {
+  grid-template-areas:
+    "logo topbar"
+    "sidebar content";
+}
+
+.brand-logo {
+  grid-area: logo;
+  background-color: var(--clr-highlight-dark);
+}
+
+.top-bar {
+  grid-area: topbar;
+  background-color: rgb(238, 238, 238);
+  box-shadow: var(--shadow);
+}
+
+.side-bar {
+  grid-area: sidebar;
+  background-color: rgb(238, 238, 238);
+  box-shadow: var(--shadow);
+}
+
+.main-content {
+  padding: 2rem 3rem;
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 0.3fr repeat(3, 1fr);
+  grid-template-areas:
+    "header header"
+    "overview status"
+    "table-management table-management"
+    "table table";
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-invoice {
+  width: 10rem;
+  height: 3rem;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 30px;
+  background-color: var(--clr-highlight-dark);
+  color: white;
+  box-shadow: var(--shadow);
+
+  transition: 200ms ease;
+}
+
+.new-invoice:hover {
+  background-color: var(--clr-highlight);
+}
+
+/* .overview {
+  grid-area: overview;
+  background-color: red;
+}
+
+.status {
+  grid-area: status;
+  background-color: blue;
+}
+
+.table-management {
+  grid-area: table-management;
+  background-color: #4995ff;
+}
+
+.invoice-table {
+  grid-area: table;
+  background-color: grey;
+} */
