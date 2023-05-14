@@ -7,9 +7,26 @@
 
 :root {
   --shadow: 2px 2px 2px rgb(183, 183, 183);
+  --border: 1px solid rgba(128, 128, 128, 0.434);
+  --border-radius-standard: 7px;
 
-  --clr-highlight: #4995ff;
-  --clr-highlight-dark: #3e7bd1;
+  --f-clr-highlight: #4995ff;
+  --f-clr-highlight-dark: #3e7bd1;
+  --f-clr-dark-accent: rgba(0, 0, 0, 0.8);
+
+  --clr-disabled: rgb(166, 166, 166);
+  --bg-clr-light: rgb(238, 238, 238);
+
+  --fs-small: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--f-clr-dark-accent);
 }
 
 .main-screen {

@@ -6,18 +6,18 @@
 
 .brand-logo {
   grid-area: logo;
-  background-color: var(--clr-highlight-dark);
+  background-color: var(--f-clr-highlight-dark);
 }
 
 .top-bar {
   grid-area: topbar;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--bg-clr-light);
   box-shadow: var(--shadow);
 }
 
 .side-bar {
   grid-area: sidebar;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--bg-clr-light);
   box-shadow: var(--shadow);
 }
 
@@ -39,18 +39,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .new-invoice {
   width: 10rem;
-  height: 3rem;
+  height: 2.6rem;
 
   font-size: 1rem;
   font-weight: 700;
 
   border: none;
   border-radius: 30px;
-  background-color: var(--clr-highlight-dark);
+  background-color: var(--f-clr-highlight-dark);
   color: white;
   box-shadow: var(--shadow);
 
@@ -58,14 +59,49 @@
 }
 
 .new-invoice:hover {
-  background-color: var(--clr-highlight);
+  background-color: var(--f-clr-highlight);
 }
 
-/* .overview {
+.overview {
   grid-area: overview;
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem 1.5rem;
+  background-color: var(--bg-clr-light);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-standard);
+  border: var(--border);
 }
 
+.overview-items {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview-item {
+  width: 33%;
+  height: 70%;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.overview-item-title {
+  color: var(--clr-disabled);
+}
+
+.overview-item-status {
+  margin-top: 10px;
+  font-size: var(--fs-small);
+}
+
+/*
 .status {
   grid-area: status;
   background-color: blue;
