@@ -13,6 +13,7 @@
   --f-clr-highlight: #4995ff;
   --f-clr-highlight-dark: #3e7bd1;
   --f-clr-dark-accent: rgba(0, 0, 0, 0.75);
+  --f-clr-inactive: grey;
 
   --clr-disabled: rgb(166, 166, 166);
   --bg-clr-light: rgb(245, 245, 245);
@@ -41,7 +42,7 @@ h6 {
   height: 100vh;
   display: grid;
   grid-template-columns: 4rem 1fr;
-  grid-template-rows: 3.5rem 1fr;
+  grid-template-rows: 3rem 1fr;
 
   background-color: rgb(229, 234, 242);
 }
