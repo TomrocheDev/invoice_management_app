@@ -26,6 +26,7 @@
 
   <body>
     <main class="main-screen">
+      <div class="darkener"></div>
       <div class="brand-logo">LOGO</div>
       <div class="top-bar"></div>
       <div class="side-bar">
@@ -103,5 +104,34 @@
         <div class="invoice-table"></div>
       </div>
     </main>
+
+    <div class="new-invoice-menu-container">
+      <form action="/create_new_invoice" method="post" class="client-to-bill">
+        <div class="new-invoice-header-section">
+          <h2>New invoice Panel</h2>
+          <button type="button" class="close-new-invoice-menu">
+            <i class="fa-regular fa-circle-xmark"></i>
+          </button>
+        </div>
+        <div class="client-select-section">
+          <label for="select-client">
+            <h4>Select client:</h4>
+          </label>
+          <!--! Loop through clientlist and generate a <option> for all individual clients -->
+          <select name="select-client-input" id="select-client">
+            <option value="none" disabled>Select client</option>
+          </select>
+        </div>
+        <div class="add-service-section"></div>
+        <div class="selected-services-section"></div>
+        <div class="button-section">
+          <button type="submit" class="close-invoice-btn">
+            Create invoice
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script src="../static/scripts/dashboard.js"></script>
   </body>
 </html>

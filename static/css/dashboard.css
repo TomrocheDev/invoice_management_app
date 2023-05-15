@@ -54,6 +54,10 @@
   color: var(--f-clr-highlight-dark);
 }
 
+.active-btn span {
+  font-weight: 700;
+}
+
 .inactive-btn {
   color: var(--f-clr-inactive);
 }
@@ -189,10 +193,6 @@
   cursor: pointer;
 }
 
-.active {
-  border-bottom: 3px solid var(--f-clr-highlight-dark);
-}
-
 .table-sorting {
   display: flex;
   align-items: end;
@@ -206,4 +206,109 @@
   box-shadow: var(--shadow);
   border-radius: var(--border-radius-standard);
   border: var(--border);
+}
+
+/* Add invoice menu */
+.new-invoice-menu-container {
+  position: absolute;
+  top: -80%;
+  left: 10%;
+  z-index: 2;
+  width: 80%;
+  height: 80%;
+  padding: 2rem 2rem 4rem;
+
+  background-color: var(--bg-clr-light);
+  border: var(--border);
+  border-radius: var(--border-radius-standard);
+  box-shadow: var(--shadow);
+  transition: 500ms ease;
+}
+
+.new-invoice-header-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-invoice-header-section button {
+  border: none;
+  background-color: transparent;
+  color: var(--f-clr-highlight-dark);
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  cursor: pointer;
+  transition: 200ms ease;
+}
+
+.new-invoice-header-section button:hover {
+  color: rgb(194, 31, 31);
+}
+
+.new-invoice-menu-container form {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 3rem 1fr 1fr 5rem;
+  grid-template-areas:
+    "header header"
+    "client-info overview"
+    "services overview"
+    "submit overview";
+
+  grid-gap: 1rem;
+}
+
+.client-select-section,
+.add-service-section,
+.selected-services-section {
+  border: var(--border);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius-standard);
+  background-color: white;
+  padding: 2rem 1rem;
+}
+
+.new-invoice-header-section {
+  grid-area: header;
+}
+
+.client-select-section {
+  grid-area: client-info;
+}
+
+.add-service-section {
+  grid-area: services;
+}
+
+.selected-services-section {
+  grid-area: overview;
+}
+
+.button-section {
+  grid-area: submit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-section button {
+  width: 10rem;
+  height: 2.6rem;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 30px;
+  background-color: var(--f-clr-highlight-dark);
+  color: white;
+  box-shadow: var(--shadow);
+
+  transition: 200ms ease;
+}
+
+.button-section button:hover {
+  background-color: var(--f-clr-highlight);
 }
