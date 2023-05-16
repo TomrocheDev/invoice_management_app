@@ -206,6 +206,7 @@
   box-shadow: var(--shadow);
   border-radius: var(--border-radius-standard);
   border: var(--border);
+  overflow-y: auto;
 }
 
 /* Add invoice menu */
