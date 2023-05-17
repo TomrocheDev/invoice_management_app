@@ -114,16 +114,29 @@
           </button>
         </div>
         <div class="client-select-section">
-          <label for="select-client">
-            <h4>Select client:</h4>
-          </label>
-          <!--! Loop through clientlist and generate a <option> for all individual clients -->
-          <select name="select-client-input" id="select-client">
-            <option value="none" disabled>Select client</option>
-          </select>
+          <div class="select-client-container">
+            <label for="select-client">
+              <h4>Select client:</h4>
+            </label>
+            <select name="select-client-input" id="select-client" size="5">
+              {% for client in client_list %}
+              <option value="{{ client[0] }}">
+                {{ client[0] }}, {{ client[1] }}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="client-info-container"></div>
         </div>
-        <div class="add-service-section"></div>
-        <div class="selected-services-section"></div>
+
+        <div class="add-service-section">
+          <button class="add-service-btn" type="button">Add a service</button>
+
+          <div class="add-services-input-container"></div>
+        </div>
+
+        <div class="services-overview-section"></div>
+
         <div class="button-section">
           <button type="submit" class="close-invoice-btn">
             Create invoice

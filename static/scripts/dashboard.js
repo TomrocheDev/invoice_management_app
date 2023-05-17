@@ -11,5 +11,49 @@ newInvoiceBtn.addEventListener("click", () => {
 
 closeNewInvoiceMenu.addEventListener("click", () => {
   darkener.classList.remove("darkened");
-  newInvoiceScreen.style.top = "-80%";
+  newInvoiceScreen.style.top = "-90%";
+});
+
+// Generate new inputfields in add-service-section when button "add a service" is clicked
+const addServiceBtn = document.querySelector(".add-service-btn");
+const servicesContainer = document.querySelector(
+  ".add-services-input-container"
+);
+
+let counter = 1;
+
+addServiceBtn.addEventListener("click", () => {
+  let newInputfield = document.createElement("div");
+  newInputfield.classList.add("inputfield-row");
+  newInputfield.innerHTML = `
+              <div class="inputfield-col service-name">
+                <label for="service-name">Service name:</label>
+                <input
+                  type="text"
+                  class="service-input input-large"
+                  name="service-name-${counter}"
+                  id="service-name"
+                  autocomplete="off" />
+              </div>
+              <div class="inputfield-col service-hours">
+                <label for="service-hours">Hours:</label>
+                <input
+                  type="number"
+                  class="service-input"
+                  name="hours-${counter}"
+                  id="hours" />
+              </div>
+              <div class="inputfield-col service-wage">
+                <label for="wage">Wage:</label>
+                <input
+                  type="number"
+                  class="service-input"
+                  name="wage-${counter}"
+                  id="wage" />
+              </div>
+  `;
+
+  servicesContainer.append(newInputfield);
+
+  counter++;
 });
