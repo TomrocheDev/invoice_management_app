@@ -44,7 +44,7 @@ addServiceBtn.addEventListener("click", () => {
                   id="hours" />
               </div>
               <div class="inputfield-col service-wage">
-                <label for="wage">Wage:</label>
+                <label for="wage">Wage per hour:</label>
                 <input
                   type="number"
                   class="service-input"

@@ -283,6 +283,7 @@
 /* Add service section */
 .add-service-section {
   grid-area: add-service-section;
+  overflow: auto;
 }
 
 .add-service-btn {
@@ -308,11 +309,15 @@
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .inputfield-row {
   display: flex;
+}
+
+.inputfield-row label {
+  font-size: 12px;
 }
 
 .service-input {

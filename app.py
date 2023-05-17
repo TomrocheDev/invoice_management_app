@@ -26,5 +26,33 @@ def dashboard():
     return render_template("dashboard.html", client_list=client_list)
 
 
+@app.route("/create_new_invoice", methods=["POST"])
+def create_new_invoice():
+    # Check how many services are given
+    data = request.form
+    row_counter = 0
+
+    for key in data:
+        if "name" in key:
+            row_counter = row_counter + 1
+
+    type_counter = 1
+    form_data = []
+
+    while type_counter <= row_counter:
+        service_name = request.form[f"service-name-{type_counter}"]
+        service_hours = request.form[f"hours-{type_counter}"]
+        service_wage = request.form[f"wage-{type_counter}"]
+
+        form_data_set = [service_name, service_hours, service_wage]
+
+        form_data.append(form_data_set)
+
+        type_counter = type_counter + 1
+
+    return form_data
+
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5003)
