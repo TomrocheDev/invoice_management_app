@@ -45,7 +45,7 @@ def create_new_invoice():
         service_hours = request.form[f"hours-{type_counter}"]
         service_wage = request.form[f"wage-{type_counter}"]
 
-        form_data_set = [service_name, service_hours, service_wage]
+        form_data_set = [service_name, float(service_hours), float(service_wage)]
 
         form_data[1].append(form_data_set)
 

@@ -2,14 +2,14 @@ from datetime import date
 
 from fpdf import FPDF
 
-def pdf_generator(client_nr, array):
+def pdf_generator(client_nr, list):
     this_date = date.today().strftime("%d-%m-%y")
 
 
     pdf = FPDF("P", "mm", "A4")
     pdf.add_page()
 
-    pdf.image("../static/images/brand-logo.PNG", 8, 5, 50)
+    pdf.image("static/images/brand-logo.PNG", 8, 5, 50)
 
     pdf.ln(32)
 
@@ -69,10 +69,27 @@ def pdf_generator(client_nr, array):
     pdf.cell(35, 8, "Tax", ln=0)
     pdf.cell(35, 8, "Total", ln=1)
 
+    pdf.ln(2)
 
-    # for service in array:
-    #     pdf.cell(40, 10, txt=service[0])
+    # Generate given data from the app onto the invoice
+    pdf.set_font("Helvetica", "", 9)
+    for service in list:
+        service_name = service[0]
+        cost = service[2] * service[1]
+        rounded_cost = round(cost, 2)
+        total_cost = cost * 1.21
+        rounded_total_cost = round(total_cost, 2)
 
-    pdf.output("../my_invoices/example.pdf")
+        pdf.cell(85, 7, service_name.capitalize(), ln=0)
+        pdf.cell(35, 7, chr(128) + str(rounded_cost), ln=0)
+        pdf.cell(35, 7, "21%", ln=0)
+        pdf.cell(35, 7, chr(128) + str(rounded_total_cost), ln=1)
 
-pdf_generator(123,[])
+    pdf.output("my_invoices/example.pdf")
+
+
+# pdf_generator(123, [
+#     ["Make website responsive", 2, 20],
+#     ["Consult", 2, 5],
+#     ["Optimize code", 5, 50]
+# ])
