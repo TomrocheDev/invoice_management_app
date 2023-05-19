@@ -30,7 +30,7 @@ def pdf_generator(client_nr, array):
     pdf.cell(25, 5, "Address: ", ln=0)
     pdf.cell(95, 5, "Example Road 2", ln=0)
     pdf.cell(25, 5, "Client number: ", ln=0)
-    pdf.cell(30, 5, "{CLIENT NUMBER}", ln=1)
+    pdf.cell(30, 5, str(client_nr), ln=1)
 
     pdf.cell(25, 5, "Postal code: ", ln=0)
     pdf.cell(95, 5, "1234 AB, Example City, The Netherlands", ln=0)
@@ -50,15 +50,24 @@ def pdf_generator(client_nr, array):
     pdf.ln(10)
 
     # Create subheader section
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(30, 5, "Invoice date: ", ln=0)
     pdf.set_font("Helvetica", "", 10)
+    pdf.cell(30, 5, "Invoice date: ", ln=0)
     pdf.cell(25, 5, f"{this_date}", ln=1)
 
-    pdf.set_font("Helvetica", "B", 10)
-    pdf.cell(30, 5, "Invoice number: ", ln=0)
     pdf.set_font("Helvetica", "", 10)
+    pdf.cell(30, 5, "Invoice number: ", ln=0)
     pdf.cell(25, 5, "{INVOICE NUMBER}")
+
+    pdf.ln(12)
+
+    pdf.line(10, 126, 200, 126)
+
+    # Create table header
+    pdf.set_font("Helvetica", "B", 10)
+    pdf.cell(85, 8, "Service", ln=0)
+    pdf.cell(35, 8, "Cost", ln=0)
+    pdf.cell(35, 8, "Tax", ln=0)
+    pdf.cell(35, 8, "Total", ln=1)
 
 
     # for service in array:
