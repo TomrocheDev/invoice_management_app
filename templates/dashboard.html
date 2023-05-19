@@ -118,7 +118,11 @@
             <label for="select-client">
               <h4>Select client:</h4>
             </label>
-            <select name="select-client-input" id="select-client" size="5">
+            <select
+              name="select-client-input"
+              id="select-client"
+              size="5"
+              required>
               {% for client in client_list %}
               <option value="{{ client[0] }}">
                 {{ client[0] }}, {{ client[1] }}

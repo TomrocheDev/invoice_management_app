@@ -106,4 +106,26 @@ def pdf_generator(client_nr, list):
     pdf.set_font("Helvetica", "", 9)
     pdf.cell(35, 7, chr(128) + str(round((float(sum(amounts_list))), 2))) # This rounds, floats and sums the list
 
+    pdf.ln(20)
+
+    # Create section for payment details
+    pdf.cell(50, 7, "Please make sure to pay this invoice before {EXPIRATION DATE}.", ln=1) # Generated dynamically
+    pdf.cell(50, 7, "Bankaccount number: NL01 JAEF 1234 5678 90") # Generated dynamically
+
+    pdf.ln(81)
+
+    # Create footer
+    pdf.set_font("", "", 7)
+    pdf.set_text_color(120, 120, 120)
+    pdf.cell(10, 8, "", ln=0)
+    pdf.cell(200, 8, "Tom Roche Software Development  -  NL01 JAEF 1234 5678 90  -  Example Road 2, Example City  -  "
+                     "info@tomrochedevelopment.com  -  +31 612345678")
+
     pdf.output("../my_invoices/example.pdf")
+
+
+pdf_generator(123, [
+    ["EEN", 1, 1],
+    ["TWEE", 2 ,2],
+    ["DRIE", 3, 3]
+])
