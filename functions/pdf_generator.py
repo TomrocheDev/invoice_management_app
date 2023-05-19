@@ -1,15 +1,26 @@
 from datetime import date
-
 from fpdf import FPDF
+import pandas as pd
 
 def pdf_generator(client_nr, list):
     this_date = date.today().strftime("%d-%m-%y")
 
+    # Get client info
+    client_df = pd.read_csv("data/client_data.csv")
+
+    client_info = {}
+
+    for client in client_df.iterrows():
+        if client[1]["client_nr"] == client_nr:
+            client_info["name"] = f"{client[1]['Fname']} {client[1]['Lname']}"
+            client_info["address"] = client[1]["address"]
+            client_info["email"] = client[1]["email"]
+            client_info["phone"] = client[1]["phone"]
 
     pdf = FPDF("P", "mm", "A4")
     pdf.add_page()
 
-    pdf.image("../static/images/brand-logo.PNG", 8, 5, 50)
+    pdf.image("static/images/brand-logo.PNG", 8, 5, 50)
 
     pdf.ln(32)
 
@@ -25,7 +36,7 @@ def pdf_generator(client_nr, list):
     pdf.cell(25, 5, "Company name: ", ln=0)
     pdf.cell(95, 5, "Tom Roche Software Development", ln=0)
     pdf.cell(25, 5, "Name: ", ln=0)
-    pdf.cell(30, 5, "{CLIENT NAME}", ln=1)
+    pdf.cell(30, 5, client_info["name"], ln=1)
 
     pdf.cell(25, 5, "Address: ", ln=0)
     pdf.cell(95, 5, "Example Road 2", ln=0)
@@ -35,17 +46,17 @@ def pdf_generator(client_nr, list):
     pdf.cell(25, 5, "Postal code: ", ln=0)
     pdf.cell(95, 5, "1234 AB, Example City, The Netherlands", ln=0)
     pdf.cell(25, 5, "Address: ", ln=0)
-    pdf.cell(30, 5, "{CLIENT ADDRESS}", ln=1)
+    pdf.cell(30, 5, client_info["address"], ln=1)
 
     pdf.cell(25, 5, "Email: ", ln=0)
     pdf.cell(95, 5, "info@tomrochedevelopment.com", ln=0)
     pdf.cell(25, 5, "Email: ", ln=0)
-    pdf.cell(30, 5, "{CLIENT EMAIL}", ln=1)
+    pdf.cell(30, 5, client_info["email"], ln=1)
 
     pdf.cell(25, 5, "Phone: ", ln=0)
     pdf.cell(95, 5, "+31 612345678", ln=0)
     pdf.cell(25, 5, "Phone: ", ln=0)
-    pdf.cell(30, 5, "{CLIENT PHONE}", ln=1)
+    pdf.cell(30, 5, str(client_info["phone"]), ln=1)
 
     pdf.ln(10)
 
@@ -121,11 +132,11 @@ def pdf_generator(client_nr, list):
     pdf.cell(200, 8, "Tom Roche Software Development  -  NL01 JAEF 1234 5678 90  -  Example Road 2, Example City  -  "
                      "info@tomrochedevelopment.com  -  +31 612345678")
 
-    pdf.output("../my_invoices/example.pdf")
+    pdf.output("my_invoices/example.pdf")
 
 
-pdf_generator(123, [
-    ["EEN", 1, 1],
-    ["TWEE", 2 ,2],
-    ["DRIE", 3, 3]
-])
+# pdf_generator(123, [
+#     ["EEN", 1, 1],
+#     ["TWEE", 2 ,2],
+#     ["DRIE", 3, 3]
+# ])

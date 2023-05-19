@@ -31,7 +31,7 @@ def create_new_invoice():
     # Check how many services are given
     data = request.form
     row_counter = 0
-    client_nr = request.form["select-client-input"]
+    client_nr = int(request.form["select-client-input"])
 
     for key in data:
         if "name" in key:
