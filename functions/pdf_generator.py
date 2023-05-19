@@ -9,7 +9,7 @@ def pdf_generator(client_nr, list):
     pdf = FPDF("P", "mm", "A4")
     pdf.add_page()
 
-    pdf.image("static/images/brand-logo.PNG", 8, 5, 50)
+    pdf.image("../static/images/brand-logo.PNG", 8, 5, 50)
 
     pdf.ln(32)
 
@@ -49,6 +49,13 @@ def pdf_generator(client_nr, list):
 
     pdf.ln(10)
 
+    # OPTIONAL!
+    # Create  box around invoice details
+    # pdf.line(10, 98, 75, 98)
+    # pdf.line(10, 115, 75, 115)
+    # pdf.line(10, 98, 10, 115)
+    # pdf.line(75, 115, 75, 98)
+
     # Create subheader section
     pdf.set_font("Helvetica", "", 10)
     pdf.cell(30, 5, "Invoice date: ", ln=0)
@@ -72,6 +79,8 @@ def pdf_generator(client_nr, list):
     pdf.ln(2)
 
     # Generate given data from the app onto the invoice
+    amounts_list = []
+
     pdf.set_font("Helvetica", "", 9)
     for service in list:
         service_name = service[0]
@@ -79,17 +88,22 @@ def pdf_generator(client_nr, list):
         rounded_cost = round(cost, 2)
         total_cost = cost * 1.21
         rounded_total_cost = round(total_cost, 2)
+        amounts_list.append(total_cost)
 
         pdf.cell(85, 7, service_name.capitalize(), ln=0)
         pdf.cell(35, 7, chr(128) + str(rounded_cost), ln=0)
         pdf.cell(35, 7, "21%", ln=0)
         pdf.cell(35, 7, chr(128) + str(rounded_total_cost), ln=1)
 
-    pdf.output("my_invoices/example.pdf")
+    pdf.ln(10)
 
+    # Create total invoice worth section
+    pdf.cell(120, 7, "", ln=0)
 
-# pdf_generator(123, [
-#     ["Make website responsive", 2, 20],
-#     ["Consult", 2, 5],
-#     ["Optimize code", 5, 50]
-# ])
+    pdf.set_font("Helvetica", "B", 9)
+    pdf.cell(35, 7, "Total amount to pay:")
+
+    pdf.set_font("Helvetica", "", 9)
+    pdf.cell(35, 7, chr(128) + str(round((float(sum(amounts_list))), 2))) # This rounds, floats and sums the list
+
+    pdf.output("../my_invoices/example.pdf")
