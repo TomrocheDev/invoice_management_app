@@ -1,9 +1,12 @@
 from datetime import date
+from dateutil.relativedelta import relativedelta
 from fpdf import FPDF
 import pandas as pd
 
+
 def pdf_generator(client_nr, list):
     this_date = date.today().strftime("%d-%m-%y")
+    expiration_date = date.today()+relativedelta(months=1)
 
     # Get client info
     client_df = pd.read_csv("data/client_data.csv")
@@ -56,7 +59,7 @@ def pdf_generator(client_nr, list):
     pdf.cell(25, 5, "Phone: ", ln=0)
     pdf.cell(95, 5, "+31 612345678", ln=0)
     pdf.cell(25, 5, "Phone: ", ln=0)
-    pdf.cell(30, 5, str(client_info["phone"]), ln=1)
+    pdf.cell(30, 5, "0" + str(client_info["phone"]), ln=1)
 
     pdf.ln(10)
 
@@ -120,7 +123,8 @@ def pdf_generator(client_nr, list):
     pdf.ln(20)
 
     # Create section for payment details
-    pdf.cell(50, 7, "Please make sure to pay this invoice before {EXPIRATION DATE}.", ln=1) # Generated dynamically
+    pdf.cell(50, 7, f"Please make sure to pay this invoice before {expiration_date.strftime('%d-%m-%y')}.", ln=1)
+
     pdf.cell(50, 7, "Bankaccount number: NL01 JAEF 1234 5678 90") # Generated dynamically
 
     pdf.ln(81)
