@@ -238,11 +238,12 @@
   grid-gap: 1rem;
 }
 
-.add-invoice-element:not(:first-of-type) {
+.add-invoice-element:not(:first-of-type, :last-of-type) {
   border: var(--border);
   border-radius: 5px;
   background-color: white;
   box-shadow: var(--shadow);
+  padding: 2rem;
 }
 
 .add-invoice-header-section {
@@ -271,12 +272,108 @@
   grid-area: details;
 }
 
+.new-invoice-client-select {
+  width: 100%;
+  height: 15%;
+}
+
+select.client-info-input {
+  font-size: 14px;
+  border: 2px solid var(--clr-disabled);
+  border-radius: var(--border-radius-standard);
+  transition: 200ms ease;
+  outline: none;
+  margin-top: 5px;
+}
+
+.new-invoice-services {
+  width: 100%;
+  height: 80%;
+  padding: 1rem 0;
+  overflow: auto;
+}
+
+.inputfield-row {
+  width: 100%;
+  display: flex;
+  gap: 5px;
+  margin-bottom: 3px;
+}
+
+.new-invoice-service-name {
+  width: 60%;
+}
+
+.new-invoice-hours,
+.new-invoice-wage {
+  width: 21%;
+}
+
+.new-invoice-delete-service {
+  width: 8%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.new-invoice-service-name,
+.new-invoice-hours,
+.new-invoice-wage {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid grey;
+}
+
+.new-invoice-add-service-btn-container {
+  height: 5%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-service-btn {
+  padding: 0.2rem 0.5rem;
+  background-color: var(--f-clr-highlight-dark);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  transition: 200ms ease;
+}
+
+.add-service-btn:hover {
+  color: white;
+  background-color: var(--f-clr-highlight);
+  border: none;
+}
+
 .add-invoice-overview-section {
   grid-area: overview;
 }
 
 .add-invoice-submit-section {
   grid-area: submit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-invoice-submit-section button {
+  font-size: 18px;
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: var(--f-clr-highlight-dark);
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: 200ms ease;
+}
+
+.add-invoice-submit-section button:hover {
+  background-color: var(--f-clr-highlight);
 }
 
 /* .new-invoice-header-section {
