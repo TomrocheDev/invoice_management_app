@@ -120,9 +120,14 @@
             </label>
             <select
               name="select-client-input"
+              class="client-info-input"
               id="select-client"
-              size="5"
+              onchange="renderClientData();"
               required>
+              <!-- <option value="">Option 1: aljdshasjldh</option>
+              <option value="">Option 2: kjadhkasasdasd</option>
+              <option value="">Option 3: kajdhkasjdh</option> -->
+              <!--! Uncomment after styling! -->
               {% for client in client_list %}
               <option value="{{ client[0] }}">
                 {{ client[0] }}, {{ client[1] }}

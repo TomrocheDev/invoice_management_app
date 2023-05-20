@@ -59,3 +59,7 @@ addServiceBtn.addEventListener("click", () => {
 
   counter++;
 });
+
+// When a client is selected, render that client's data in "client-info-container"
+const clientInfoContainer = document.querySelector(".client-info-container");
+const clientSelectInput = document.querySelector("select.client-info-input");
