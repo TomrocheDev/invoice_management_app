@@ -106,36 +106,53 @@
     </main>
 
     <div class="new-invoice-menu-container">
-      <form action="/create_new_invoice" method="post" class="client-to-bill">
-        <div class="new-invoice-header-section">
+      <form
+        action="/create_new_invoice"
+        method="post"
+        class="new-invoice-menu-form">
+        <section class="add-invoice-element add-invoice-header-section">
+          <h2>New invoice panel</h2>
+          <div class="add-invoice-exit-btn">
+            <button type="button" class="exit-new-invoice">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+        </section>
+        <section
+          class="add-invoice-element add-invoice-details-section"></section>
+        <section
+          class="add-invoice-element add-invoice-overview-section"></section>
+        <section
+          class="add-invoice-element add-invoice-submit-section"></section>
+      </form>
+
+      <!-- <div class="new-invoice-header-section">
           <h2>New invoice Panel</h2>
           <button type="button" class="close-new-invoice-menu">
             <i class="fa-regular fa-circle-xmark"></i>
           </button>
         </div>
-        <div class="client-select-section">
-          <div class="select-client-container">
-            <label for="select-client">
-              <h4>Select client:</h4>
-            </label>
-            <select
-              name="select-client-input"
-              class="client-info-input"
-              id="select-client"
-              onchange="renderClientData();"
-              required>
-              <!-- <option value="">Option 1: aljdshasjldh</option>
-              <option value="">Option 2: kjadhkasasdasd</option>
-              <option value="">Option 3: kajdhkasjdh</option> -->
-              <!--! Uncomment after styling! -->
-              {% for client in client_list %}
-              <option value="{{ client[0] }}">
-                {{ client[0] }}, {{ client[1] }}
-              </option>
-              {% endfor %}
-            </select>
+        <div class="add-invoice-management">
+          <div class="client-select-section">
+            <div class="select-client-container">
+              <label for="select-client">
+                <h4>Select client:</h4>
+              </label>
+              <select
+                name="select-client-input"
+                class="client-info-input"
+                id="select-client"
+                onchange="renderClientData();"
+                required>
+                {% for client in client_list %}
+                <option value="{{ client[0] }}">
+                  {{ client[0] }}, {{ client[1] }}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="client-info-container"></div>
           </div>
-          <div class="client-info-container"></div>
         </div>
 
         <div class="add-service-section">
@@ -150,8 +167,7 @@
           <button type="submit" class="close-invoice-btn">
             Create invoice
           </button>
-        </div>
-      </form>
+        </div> -->
     </div>
 
     <script src="../static/scripts/dashboard.js"></script>

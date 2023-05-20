@@ -2,7 +2,7 @@
 const newInvoiceBtn = document.querySelector(".new-invoice");
 const newInvoiceScreen = document.querySelector(".new-invoice-menu-container");
 const darkener = document.querySelector(".darkener");
-const closeNewInvoiceMenu = document.querySelector(".fa-circle-xmark");
+const closeNewInvoiceMenu = document.querySelector(".exit-new-invoice");
 
 newInvoiceBtn.addEventListener("click", () => {
   darkener.classList.toggle("darkened");

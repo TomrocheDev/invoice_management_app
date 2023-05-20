@@ -217,7 +217,7 @@
   z-index: 2;
   width: 50%;
   height: 80%;
-  padding: 2rem 2rem 4rem;
+  padding: 2rem;
 
   background-color: var(--bg-clr-light);
   border: var(--border);
@@ -226,7 +226,60 @@
   transition: 500ms ease;
 }
 
-.new-invoice-header-section {
+.new-invoice-menu-form {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.07fr 1fr 0.15fr;
+  grid-template-areas:
+    "header header"
+    "details overview"
+    "submit submit";
+  grid-gap: 1rem;
+}
+
+.add-invoice-element:not(:first-of-type) {
+  border: var(--border);
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: var(--shadow);
+}
+
+.add-invoice-header-section {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+}
+
+.exit-new-invoice {
+  height: 80%;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--f-clr-inactive);
+  font-size: 20px;
+  cursor: pointer;
+  transition: 200ms ease;
+}
+
+.exit-new-invoice:hover {
+  color: black;
+}
+
+.add-invoice-details-section {
+  grid-area: details;
+}
+
+.add-invoice-overview-section {
+  grid-area: overview;
+}
+
+.add-invoice-submit-section {
+  grid-area: submit;
+}
+
+/* .new-invoice-header-section {
   display: flex;
   justify-content: space-between;
 }
@@ -249,16 +302,13 @@
 
 .new-invoice-menu-container form {
   display: grid;
-  height: 100%;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 3rem 1fr 1fr 5rem;
   grid-template-areas:
     "header header"
-    "client-info add-service-section"
-    "total-overview add-service-section"
-    "submit add-service-section";
-
-  grid-gap: 1rem;
+    "invoice-details overview"
+    "invoice-details overview"
+    "submit overview";
 }
 
 .client-select-section,
@@ -273,11 +323,11 @@
 
 .new-invoice-header-section {
   grid-area: header;
-}
+} */
 
 /* Client info section */
-.client-select-section {
-  grid-area: client-info;
+/* .client-select-section {
+  grid-area: ;
   display: flex;
   padding: 0 2rem 0rem;
 }
@@ -303,10 +353,10 @@ select.client-info-input {
 
 select.client-info-input:focus {
   border: 2px solid black;
-}
+} */
 
 /* Add service section */
-.add-service-section {
+/* .add-service-section {
   grid-area: add-service-section;
   overflow: auto;
 }
@@ -375,10 +425,10 @@ select.client-info-input:focus {
 
 .button-section button:hover {
   background-color: var(--f-clr-highlight);
-}
+} */
 
 /* Add service  section*/
-.add-service-space {
+/* .add-service-space {
   display: flex;
   flex-direction: column;
-}
+} */
